@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   determine-evals:
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     outputs:
       run-extract: ${{ steps.check-labels.outputs.run-extract }}
       run-act: ${{ steps.check-labels.outputs.run-act }}
@@ -44,7 +44,7 @@ jobs:
           echo "run-text-extract=${{ contains(github.event.pull_request.labels.*.name, 'text-extract') }}" >> $GITHUB_OUTPUT
 
   run-lint:
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -64,7 +64,7 @@ jobs:
         run: npm run lint
 
   run-build:
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -85,7 +85,7 @@ jobs:
 
   run-e2e-tests:
     needs: [run-lint, run-build]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 50
     env:
       HEADLESS: true
@@ -115,7 +115,7 @@ jobs:
 
   run-e2e-local-tests:
     needs: [run-lint, run-build]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 50
     env:
       HEADLESS: true
@@ -145,7 +145,7 @@ jobs:
 
   run-e2e-bb-tests:
     needs: [run-e2e-tests]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 50
     if: >
       github.event_name == 'push' ||
@@ -182,7 +182,7 @@ jobs:
 
   run-combination-evals:
     needs: [run-e2e-bb-tests, run-e2e-tests, determine-evals]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 40
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -231,7 +231,7 @@ jobs:
 
   run-act-evals:
     needs: [run-combination-evals, determine-evals]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 25
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -299,7 +299,7 @@ jobs:
 
   run-extract-evals:
     needs: [run-act-evals, determine-evals]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 50
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -384,7 +384,7 @@ jobs:
 
   run-text-extract-evals:
     needs: [run-extract-evals, determine-evals]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 120
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -453,7 +453,7 @@ jobs:
 
   run-observe-evals:
     needs: [run-text-extract-evals, determine-evals]
-    runs-on: ubuntu-latest
+    runs-on: codebuild-stagehand-${{ github.run_id }}-${{ github.run_attempt }}
     timeout-minutes: 60
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
