@@ -1,0 +1,16 @@
+{
+  "name": "@stagehand/config",
+  "version": "0.0.0",
+  "type": "module",
+  "module": "./stagehand.config.ts",
+  "private": true,
+  "files": [
+    "stagehand.config.ts"
+  ],
+  "dependencies": {
+    "@stagehand/core": "workspace:*"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

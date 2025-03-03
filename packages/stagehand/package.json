@@ -1,45 +1,38 @@
 {
-  "name": "@stagehand/monorepo",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@stagehand/core",
+  "version": "1.13.1",
   "description": "An AI web browsing framework focused on simplicity and extensibility.",
   "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "2048": "npm run build && tsx examples/2048.ts",
-    "popup": "npm run build && tsx examples/popup.ts",
-    "example": "npm run build && tsx examples/example.ts",
-    "langchain": "npm run build && tsx examples/langchain.ts",
-    "debug-url": "npm run build && tsx examples/debugUrl.ts",
-    "external-client": "npm run build && tsx examples/external_client.ts",
-    "instructions": "npm run build && tsx examples/instructions.ts",
-    "ai-sdk-client": "npm run build && tsx examples/ai_sdk_example.ts",
-    "actionable_observe_example": "npm run build && tsx examples/actionable_observe_example.ts",
     "format": "prettier --write .",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "eslint": "eslint .",
     "cache:clear": "rm -rf .cache",
-    "evals": "npm run build && tsx evals/index.eval.ts",
-    "e2e": "npm run build && cd evals/deterministic && npx playwright test --config=e2e.playwright.config.ts",
-    "e2e:bb": "npm run build && cd evals/deterministic && npx playwright test --config=bb.playwright.config.ts",
-    "e2e:local": "npm run build && cd evals/deterministic && npx playwright test --config=local.playwright.config.ts",
-    "build": "turbo run build",
+    "build-dom-scripts": "tsx lib/dom/genDomScripts.ts",
+    "build-types": "tsc --emitDeclarationOnly --outDir dist",
+    "build-js": "tsup lib/index.ts --dts",
+    "build": "npm run lint && npm run build-dom-scripts && npm run build-js && npm run build-types",
     "lint": "npm run prettier && npm run eslint",
     "release": "npm run build && changeset publish",
     "release-canary": "npm run build && changeset version --snapshot && changeset publish --tag alpha"
   },
+  "files": [
+    "dist/**",
+    "lib/**"
+  ],
   "keywords": [],
   "author": "Browserbase",
   "license": "MIT",
   "devDependencies": {
     "@ai-sdk/google": "^1.0.13",
     "@ai-sdk/openai": "^1.0.14",
-    "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.9",
+    "@stagehand/typescript-config": "workspace:*",
     "@eslint/js": "^9.16.0",
     "@langchain/core": "^0.3.40",
     "@langchain/openai": "^0.4.4",
-    "@stagehand/typescript-config": "workspace:*",
     "@types/adm-zip": "^0.5.7",
     "@types/cheerio": "^0.22.35",
     "@types/express": "^4.17.21",
@@ -61,7 +54,6 @@
     "string-comparison": "^1.3.0",
     "tsup": "^8.2.1",
     "tsx": "^4.10.5",
-    "turbo": "^2.4.4",
     "typescript": "^5.2.2",
     "typescript-eslint": "^8.17.0"
   },
@@ -80,11 +72,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aryasaatvik/stagehand.git"
+    "url": "git+https://github.com/aryasaatvik/stagehand.git",
+    "directory": "packages/stagehand"
   },
   "bugs": {
     "url": "https://github.com/aryasaatvik/stagehand/issues"
   },
-  "homepage": "https://github.com/aryasaatvik/stagehand#readme",
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "homepage": "https://github.com/aryasaatvik/stagehand#readme"
 }
