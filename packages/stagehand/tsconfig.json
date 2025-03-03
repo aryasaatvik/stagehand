@@ -1,0 +1,10 @@
+{
+  "extends": "@stagehand/typescript-config",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["lib", "types"]
+}

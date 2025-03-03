@@ -57,6 +57,210 @@ importers:
       '@langchain/openai':
         specifier: ^0.4.4
         version: 0.4.4(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.1)(zod@3.24.2)))(ws@8.18.1)
+      '@stagehand/typescript-config':
+        specifier: workspace:*
+        version: link:packages/typescript-config
+      '@types/adm-zip':
+        specifier: ^0.5.7
+        version: 0.5.7
+      '@types/cheerio':
+        specifier: ^0.22.35
+        version: 0.22.35
+      '@types/express':
+        specifier: ^4.17.21
+        version: 4.17.21
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.17.22
+      '@types/ws':
+        specifier: ^8.5.13
+        version: 8.5.14
+      adm-zip:
+        specifier: ^0.5.16
+        version: 0.5.16
+      ai:
+        specifier: ^4.0.26
+        version: 4.1.47(react@19.0.0)(zod@3.24.2)
+      autoevals:
+        specifier: ^0.0.64
+        version: 0.0.64
+      braintrust:
+        specifier: ^0.0.171
+        version: 0.0.171(openai@4.86.1(ws@8.18.1)(zod@3.24.2))(react@19.0.0)(sswr@2.1.0(svelte@5.20.5))(svelte@5.20.5)(vue@3.5.13(typescript@5.8.2))(zod@3.24.2)
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
+      cheerio:
+        specifier: ^1.0.0
+        version: 1.0.0
+      chromium-bidi:
+        specifier: ^0.10.0
+        version: 0.10.2(devtools-protocol@0.0.1425554)
+      esbuild:
+        specifier: ^0.21.4
+        version: 0.21.5
+      eslint:
+        specifier: ^9.16.0
+        version: 9.21.0
+      express:
+        specifier: ^4.21.0
+        version: 4.21.2
+      globals:
+        specifier: ^15.13.0
+        version: 15.15.0
+      multer:
+        specifier: ^1.4.5-lts.1
+        version: 1.4.5-lts.1
+      prettier:
+        specifier: ^3.2.5
+        version: 3.5.2
+      string-comparison:
+        specifier: ^1.3.0
+        version: 1.3.0
+      tsup:
+        specifier: ^8.2.1
+        version: 8.4.0(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.0)
+      tsx:
+        specifier: ^4.10.5
+        version: 4.19.3
+      turbo:
+        specifier: ^2.4.4
+        version: 2.4.4
+      typescript:
+        specifier: ^5.2.2
+        version: 5.8.2
+      typescript-eslint:
+        specifier: ^8.17.0
+        version: 8.25.0(eslint@9.21.0)(typescript@5.8.2)
+
+  packages/evals:
+    dependencies:
+      '@stagehand/config':
+        specifier: workspace:*
+        version: link:../stagehand-config
+      '@stagehand/core':
+        specifier: workspace:*
+        version: link:../stagehand
+      autoevals:
+        specifier: ^0.0.64
+        version: 0.0.64
+      braintrust:
+        specifier: ^0.0.171
+        version: 0.0.171(openai@4.86.1(ws@8.18.1)(zod@3.24.2))(react@19.0.0)(sswr@2.1.0(svelte@5.20.5))(svelte@5.20.5)(vue@3.5.13(typescript@5.8.2))(zod@3.24.2)
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
+      string-comparison:
+        specifier: ^1.3.0
+        version: 1.3.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.24.2
+    devDependencies:
+      '@anthropic-ai/sdk':
+        specifier: ^0.27.3
+        version: 0.27.3
+      '@playwright/test':
+        specifier: ^1.42.1
+        version: 1.50.1
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.17.22
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.7
+      tsx:
+        specifier: ^4.10.5
+        version: 4.19.3
+      typescript:
+        specifier: ^5.2.2
+        version: 5.8.2
+
+  packages/examples:
+    dependencies:
+      '@stagehand/config':
+        specifier: workspace:*
+        version: link:../stagehand-config
+      '@stagehand/core':
+        specifier: workspace:*
+        version: link:../stagehand
+    devDependencies:
+      '@ai-sdk/google':
+        specifier: ^1.0.13
+        version: 1.1.17(zod@3.24.2)
+      '@ai-sdk/openai':
+        specifier: ^1.0.14
+        version: 1.1.15(zod@3.24.2)
+      '@langchain/core':
+        specifier: ^0.3.40
+        version: 0.3.42(openai@4.86.1(ws@8.18.1)(zod@3.24.2))
+      '@langchain/openai':
+        specifier: ^0.4.4
+        version: 0.4.4(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.1)(zod@3.24.2)))(ws@8.18.1)
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.17.22
+      openai:
+        specifier: ^4.62.1
+        version: 4.86.1(ws@8.18.1)(zod@3.24.2)
+      tsx:
+        specifier: ^4.10.5
+        version: 4.19.3
+      typescript:
+        specifier: ^5.2.2
+        version: 5.8.2
+      zod:
+        specifier: ^3.23.8
+        version: 3.24.2
+
+  packages/stagehand:
+    dependencies:
+      '@anthropic-ai/sdk':
+        specifier: ^0.27.3
+        version: 0.27.3
+      '@browserbasehq/sdk':
+        specifier: ^2.0.0
+        version: 2.3.0
+      '@playwright/test':
+        specifier: ^1.42.1
+        version: 1.50.1
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.7
+      openai:
+        specifier: ^4.62.1
+        version: 4.86.1(ws@8.18.1)(zod@3.24.2)
+      ws:
+        specifier: ^8.18.0
+        version: 8.18.1
+      zod:
+        specifier: ^3.23.8
+        version: 3.24.2
+      zod-to-json-schema:
+        specifier: ^3.23.5
+        version: 3.24.3(zod@3.24.2)
+    devDependencies:
+      '@ai-sdk/google':
+        specifier: ^1.0.13
+        version: 1.1.17(zod@3.24.2)
+      '@ai-sdk/openai':
+        specifier: ^1.0.14
+        version: 1.1.15(zod@3.24.2)
+      '@eslint/js':
+        specifier: ^9.16.0
+        version: 9.21.0
+      '@langchain/core':
+        specifier: ^0.3.40
+        version: 0.3.42(openai@4.86.1(ws@8.18.1)(zod@3.24.2))
+      '@langchain/openai':
+        specifier: ^0.4.4
+        version: 0.4.4(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.1)(zod@3.24.2)))(ws@8.18.1)
+      '@stagehand/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/adm-zip':
         specifier: ^0.5.7
         version: 0.5.7
@@ -126,6 +330,22 @@ importers:
       typescript-eslint:
         specifier: ^8.17.0
         version: 8.25.0(eslint@9.21.0)(typescript@5.8.2)
+
+  packages/stagehand-config:
+    dependencies:
+      '@stagehand/core':
+        specifier: workspace:*
+        version: link:../stagehand
+    devDependencies:
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.7
+
+  packages/typescript-config:
+    devDependencies:
+      typescript:
+        specifier: ^5.2.2
+        version: 5.8.2
 
 packages:
 
@@ -2671,6 +2891,40 @@ packages:
   tsx@4.19.3:
     resolution: {integrity: sha512-4H8vUNGNjQ4V2EOoGw005+c+dGuPSnhpPBPHBtsZdGZBk/iJb4kguGlPWaZTZ3q5nMtFOEsY0nRDlh9PJyd6SQ==}
     engines: {node: '>=18.0.0'}
+    hasBin: true
+
+  turbo-darwin-64@2.4.4:
+    resolution: {integrity: sha512-5kPvRkLAfmWI0MH96D+/THnDMGXlFNmjeqNRj5grLKiry+M9pKj3pRuScddAXPdlxjO5Ptz06UNaOQrrYGTx1g==}
+    cpu: [x64]
+    os: [darwin]
+
+  turbo-darwin-arm64@2.4.4:
+    resolution: {integrity: sha512-/gtHPqbGQXDFhrmy+Q/MFW2HUTUlThJ97WLLSe4bxkDrKHecDYhAjbZ4rN3MM93RV9STQb3Tqy4pZBtsd4DfCw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  turbo-linux-64@2.4.4:
+    resolution: {integrity: sha512-SR0gri4k0bda56hw5u9VgDXLKb1Q+jrw4lM7WAhnNdXvVoep4d6LmnzgMHQQR12Wxl3KyWPbkz9d1whL6NTm2Q==}
+    cpu: [x64]
+    os: [linux]
+
+  turbo-linux-arm64@2.4.4:
+    resolution: {integrity: sha512-COXXwzRd3vslQIfJhXUklgEqlwq35uFUZ7hnN+AUyXx7hUOLIiD5NblL+ETrHnhY4TzWszrbwUMfe2BYWtaPQg==}
+    cpu: [arm64]
+    os: [linux]
+
+  turbo-windows-64@2.4.4:
+    resolution: {integrity: sha512-PV9rYNouGz4Ff3fd6sIfQy5L7HT9a4fcZoEv8PKRavU9O75G7PoDtm8scpHU10QnK0QQNLbE9qNxOAeRvF0fJg==}
+    cpu: [x64]
+    os: [win32]
+
+  turbo-windows-arm64@2.4.4:
+    resolution: {integrity: sha512-403sqp9t5sx6YGEC32IfZTVWkRAixOQomGYB8kEc6ZD+//LirSxzeCHCnM8EmSXw7l57U1G+Fb0kxgTcKPU/Lg==}
+    cpu: [arm64]
+    os: [win32]
+
+  turbo@2.4.4:
+    resolution: {integrity: sha512-N9FDOVaY3yz0YCOhYIgOGYad7+m2ptvinXygw27WPLQvcZDl3+0Sa77KGVlLSiuPDChOUEnTKE9VJwLSi9BPGQ==}
     hasBin: true
 
   type-check@0.4.0:
@@ -5459,6 +5713,33 @@ snapshots:
       get-tsconfig: 4.10.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  turbo-darwin-64@2.4.4:
+    optional: true
+
+  turbo-darwin-arm64@2.4.4:
+    optional: true
+
+  turbo-linux-64@2.4.4:
+    optional: true
+
+  turbo-linux-arm64@2.4.4:
+    optional: true
+
+  turbo-windows-64@2.4.4:
+    optional: true
+
+  turbo-windows-arm64@2.4.4:
+    optional: true
+
+  turbo@2.4.4:
+    optionalDependencies:
+      turbo-darwin-64: 2.4.4
+      turbo-darwin-arm64: 2.4.4
+      turbo-linux-64: 2.4.4
+      turbo-linux-arm64: 2.4.4
+      turbo-windows-64: 2.4.4
+      turbo-windows-arm64: 2.4.4
 
   type-check@0.4.0:
     dependencies:
